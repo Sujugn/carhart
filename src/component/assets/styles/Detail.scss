@@ -1,0 +1,44 @@
+.detailpage {
+    margin: 30px 0;
+    .detailpage-inner {
+        display: flex;
+        justify-content: space-between;
+
+        .product-img {
+            width: 510px;
+            .style-name {
+                margin: 15px 0;
+                display: flex;
+                font-size: 18px;
+                p {
+                    width: 90px;
+                    font-size: 16px;
+                }
+            }
+
+            .main-block {
+                width: 100%;
+                height: 520px;
+
+                background-color: #e8e8e8;
+            }
+
+            .sub-block {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin: 30px 0;
+
+                li {
+                    width: 90px;
+                    height: 90px;
+                    background-color: gray;
+                }
+            }
+        }
+
+        .product-form {
+            width: 510px;
+        }
+    }
+}

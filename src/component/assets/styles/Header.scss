@@ -1,0 +1,68 @@
+//공통
+// .active {
+//     color: blue;
+// }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    background-color: black;
+
+    .header-inner {
+        width: 1245px;
+        margin: 0 auto;
+
+        .gnb {
+            position: relative;
+            .logo-block {
+                width: 120px;
+                margin: 0 auto;
+                img {
+                    width: 100%;
+                }
+            }
+
+            .login-block {
+                position: absolute;
+                right: 0;
+                top: 50%;
+
+                font-size: 14px;
+                a {
+                    color: white;
+                    margin: 0 15px;
+                }
+            }
+        }
+
+        .lnb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            .lnb-block {
+                font-size: 24px;
+                font-weight: bold;
+
+                a {
+                    color: white;
+                    margin: 0 15px;
+                }
+            }
+
+            .rank-block {
+                color: white;
+            }
+        }
+    }
+}

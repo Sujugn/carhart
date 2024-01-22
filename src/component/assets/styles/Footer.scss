@@ -1,0 +1,70 @@
+.footer {
+    width: 100%;
+    // position: fixed;
+    bottom: 0;
+    background-color: black;
+    .footer-inner {
+        color: white;
+        .section {
+            width: 100%;
+            .section-block {
+                display: flex;
+                justify-content: space-between;
+                margin: 15px 0;
+
+                a {
+                    color: white;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+
+                strong {
+                    font-size: 16px;
+                }
+
+                .inquiry {
+                    display: flex;
+                    li {
+                        margin-right: 20px;
+                    }
+                }
+
+                .company {
+                    li {
+                        margin: 15px 0;
+                    }
+                }
+
+                .sns {
+                    width: 300px;
+                    display: flex;
+
+                    li {
+                        margin: 0 5px;
+                    }
+                }
+
+                .info {
+                    width: 300px;
+                    li {
+                        display: flex;
+                        justify-content: space-between;
+
+                        margin: 15px 0;
+                    }
+                }
+
+                .terms {
+                    display: flex;
+                    font-size: 14px;
+
+                    li {
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
