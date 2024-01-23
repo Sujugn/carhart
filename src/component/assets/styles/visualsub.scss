@@ -1,0 +1,29 @@
+.visualsub {
+    height: 350px;
+    .visual-inner {
+        display: flex;
+        align-items: flex-end;
+        .visual {
+        }
+        background-color: gray;
+        height: 350px;
+        img {
+            width: 100%;
+        }
+
+        .visual-text {
+            background-color: black;
+            color: white;
+            margin: 10px;
+            padding: 10px;
+
+            .category {
+                font-size: 40px;
+            }
+
+            .desc {
+                font-size: 24px;
+            }
+        }
+    }
+}

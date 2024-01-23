@@ -14,6 +14,7 @@ export default function VisualMain() {
 
             <div className="visualmain-inner inner">
                 <Link to="/Detail">디테일페이지</Link>
+                <Link to="/sub">서브페이지</Link>
             </div>
         </div>
     );

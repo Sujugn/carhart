@@ -8,7 +8,8 @@ import Footer from './component/layout/Footer';
 import LoginPage from './component/routes/login';
 import JoinPage from './component/routes/join';
 import CartPage from './component/routes/cart';
-import DetaiPage from './component/layout/Detai';
+import DetailPage from './component/layout/Detail';
+import SubPage from './component/layout/Sub';
 
 function App() {
     return (
@@ -34,7 +35,11 @@ function App() {
                 ></Route>
                 <Route
                     path="/Detail"
-                    element={<DetaiPage />}
+                    element={<DetailPage />}
+                ></Route>
+                <Route
+                    path="/Sub"
+                    element={<SubPage />}
                 ></Route>
             </Routes>
             <Footer />

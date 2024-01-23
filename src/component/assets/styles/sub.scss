@@ -1,0 +1,92 @@
+.side-menu {
+    // width: 300px;
+    width: 210px;
+    padding: 0 30px;
+    //공통
+    background-color: #e8e8e8;
+}
+
+.filter {
+    // width: 300px;
+    width: 210px;
+    padding: 0 30px;
+    //공통
+    .price-filter {
+    }
+
+    .color-filter {
+        .colors {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            li {
+                width: 20px;
+                height: 20px;
+                margin-right: 15px;
+                margin-bottom: 15px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .sale-filter,
+    .price-filter {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.sub-inner {
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+    }
+
+    .main-content {
+        width: calc(100% - 300px);
+        .sort-block {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+
+        .content-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            //공통
+
+            li {
+                .product-img {
+                    width: 300px;
+                    height: 300px;
+                    background-color: gray;
+
+                    // &:nth-child()
+                }
+
+                .label {
+                    .label-new {
+                        color: #545adc;
+                    }
+                    .label-best {
+                        color: #dc5c54;
+                    }
+                }
+
+                .product-name,
+                .product-desc {
+                    font-size: 16px;
+                }
+
+                .product-desc {
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+}
