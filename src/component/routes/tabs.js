@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
-import reviewPage from './review';
+import InquiryTab from './inquiry';
+import ReviewTab from './review';
 
 export default function Tabs() {
     const tabContent = [
         { id: 'tab01', title: '탭메뉴01', subtitle: '서브타이틀', content: '컨텐츠내용' },
-        { id: 'tab02', title: '탭메뉴02', subtitle: '서브타이틀', content: '컨텐츠 내용' },
-        { id: 'tab03', title: '탭메뉴03', subtitle: '서브타이틀', content: '컨텐츠내용' },
+        { id: 'tab02', title: '탭메뉴02', subtitle: '서브타이틀', content: <ReviewTab /> },
+        { id: 'tab03', title: '탭메뉴03', subtitle: '서브타이틀', content: <InquiryTab /> },
         { id: 'tab04', title: '탭메뉴04', subtitle: '서브타이틀', content: '컨텐츠내용' },
-        { id: 'tab05', title: '탭메뉴05', subtitle: '서브타이틀', content: '컨텐츠내용' },
+        { id: 'tab05', title: '배송안내', subtitle: '서브타이틀', content: '컨텐츠내용' },
     ];
 
     //색상변경 상태함수
@@ -63,7 +64,12 @@ export default function Tabs() {
                         }}
                     >
                         <span>{tabs.subtitle}</span>
-                        <p>{tabs.content}</p>
+
+                        {typeof tabs.content === 'string' ? (
+                            tabs.content
+                        ) : (
+                            <React.Fragment key={tabs.id}>{tabs.content}</React.Fragment>
+                        )}
                     </div>
                 ))}
             </div>
