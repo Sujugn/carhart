@@ -51,7 +51,41 @@
         .sort-block {
             display: flex;
             justify-content: space-between;
-            margin: 30px 0;
+            margin-top: 30px;
+
+            .gender-box {
+            }
+
+            .sort-box {
+                display: flex;
+                align-items: center;
+                .division {
+                    display: flex;
+                    align-items: center;
+
+                    &:nth-child(2) {
+                        margin: 0 10px;
+                    }
+                }
+
+                .newtap {
+                    .icon {
+                        width: 15px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .filtertap {
+                    .icon {
+                        width: 45px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
         }
 
         .content-block {
@@ -61,30 +95,49 @@
             //공통
 
             li {
-                .product-img {
-                    width: 300px;
-                    height: 300px;
-                    background-color: gray;
+                .product-info {
+                    margin: 30px 0;
+                    position: relative;
 
-                    // &:nth-child()
-                }
-
-                .label {
-                    .label-new {
-                        color: #545adc;
+                    .product-img {
+                        width: 300px;
+                        height: 300px;
+                        background-color: gray;
                     }
-                    .label-best {
-                        color: #dc5c54;
+
+                    .label {
+                        .label-new {
+                            color: #545adc;
+                        }
+                        .label-best {
+                            color: #dc5c54;
+                        }
                     }
-                }
 
-                .product-name,
-                .product-desc {
-                    font-size: 16px;
-                }
+                    .product-name,
+                    .product-desc {
+                        font-size: 16px;
+                    }
 
-                .product-desc {
-                    margin-bottom: 25px;
+                    .product-desc {
+                        margin-bottom: 25px;
+                    }
+
+                    .cart-btn {
+                        position: absolute;
+                        width: 40px;
+                        height: 40px;
+                        background-color: #545adc;
+                        border: none;
+
+                        top: 260px;
+                        right: 0;
+
+                        //공통
+                        img {
+                            width: 100%;
+                        }
+                    } //공통
                 }
             }
         }

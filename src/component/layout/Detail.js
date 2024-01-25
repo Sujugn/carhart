@@ -1,7 +1,9 @@
 import React from 'react';
 import '../assets/styles/Detail.scss';
-
 import { Link } from 'react-router-dom';
+
+//PAGE
+import Tabs from '../routes/tabs';
 
 //ICON
 import deliveryIcon from '../assets/img/delivery.png';
@@ -182,6 +184,7 @@ export default function DetailPage() {
                     </div>
                 </div>
             </div>
+            <Tabs></Tabs>
         </div>
     );
 }
