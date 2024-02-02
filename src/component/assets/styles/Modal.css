@@ -1,0 +1,53 @@
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.modal {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 388px;
+    width: 300px;
+    padding: 30px;
+}
+
+.modal-close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.store-slider {
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.store-quick {
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 50%;
+}
+
+.zoom-store {
+    position: absolute;
+    top: 260px;
+    right: 20px;
+    padding: 2px 5px;
+    border-radius: 10px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}

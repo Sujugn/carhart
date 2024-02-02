@@ -11,6 +11,8 @@ import arrowIcon from '../assets/img/arrow.png';
 //PAGE
 import VisualSub from '../routes/visualsub';
 import Filter from '../routes/filter';
+import ProductList from '../routes/ProductList';
+import Sidebar from '../routes/Sidebar';
 
 export default function SubPage() {
     return (
@@ -60,7 +62,7 @@ export default function SubPage() {
                             </a>
                         </div>
                     </div>
-
+                    {/* 
                     <ul className="content-block">
                         <li>
                             <div className="product-info">
@@ -77,7 +79,9 @@ export default function SubPage() {
                                 </button>
                             </div>
                         </li>
-                    </ul>
+                    </ul> */}
+
+                    <ProductList></ProductList>
                 </div>
             </div>
         </div>

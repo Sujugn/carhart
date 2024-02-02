@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/Detail.scss';
 import { Link } from 'react-router-dom';
+import SizeModal from '../routes/size';
+import Modal from '../routes/Modal';
 
 //PAGE
 import Tabs from '../routes/tabs';
+import Sidebar from '../routes/Sidebar';
+import CartSidebar from '../routes/AddCart';
 
 //ICON
 import deliveryIcon from '../assets/img/delivery.png';
@@ -166,12 +170,16 @@ export default function DetailPage() {
                             <span>최대 3퍼센트 적립</span>
                         </div>
 
-                        <button className="size-btn">
-                            <div className="icon">
-                                <img src={sizeIcon} />
-                            </div>
-                            <strong>고객님의사이즈를 찾아보세요</strong>
-                        </button>
+                        <div>
+                            <button className="size-btn">
+                                <div className="icon">
+                                    <img src={sizeIcon} />
+                                </div>
+
+                                <strong>고객님의 사이즈를 찾아보세요</strong>
+                            </button>
+                            <Modal>{/* <SizeModal /> */}</Modal>
+                        </div>
 
                         <div className="flex-box">
                             <button className="cart-btn">장바구니</button>

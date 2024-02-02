@@ -1,20 +1,25 @@
 import React from 'react';
 
 export default function InquiryTab() {
-    const inquiryList = [];
+    const inquiryList = [{}];
 
     return (
         <div>
-            <section
+            <div
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    margin: '10px 0',
                 }}
             >
                 <h1>제품에 관한 궁금한 점을 올리시면 신속한 답변을 드립니다.</h1>
-                <p>
-                    배송,결제,교환/반품 등에 대한 문의는{' '}
+                <p
+                    style={{
+                        margin: '10px 0',
+                    }}
+                >
+                    배송,결제,교환/반품 등에 대한 문의는
                     <span
                         style={{
                             color: 'red',
@@ -36,51 +41,94 @@ export default function InquiryTab() {
                 >
                     문의하기
                 </button>
-            </section>
+            </div>
 
-            <section>
+            <div>
                 <p>전체(N건)</p>
-                <ul
-                    style={{
-                        display: 'flex',
-                        height: '80px',
-                        alignItems: 'center',
-                    }}
-                >
-                    <li
+
+                <div>
+                    <ul
                         style={{
-                            width: '90PX',
-                            marginRight: '15px',
+                            display: 'flex',
+                            height: '80px',
+                            alignItems: 'center',
                         }}
                     >
-                        <p>미처리</p>
-                    </li>
-                    <li
+                        <li
+                            style={{
+                                width: '90PX',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>미처리</p>
+                        </li>
+                        <li
+                            style={{
+                                width: '825px',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>제품에문제가있어서 교환하고싶은뎅</p>
+                        </li>
+                        <li
+                            style={{
+                                width: '90px',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>2022-02-11</p>
+                        </li>
+                        <li
+                            style={{
+                                width: '90px',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>ha***</p>
+                        </li>
+                    </ul>
+                    <ul
                         style={{
-                            width: '825px',
-                            marginRight: '15px',
+                            display: 'flex',
+                            height: '80px',
+                            alignItems: 'center',
                         }}
                     >
-                        <p>제품에문제가있어서 교환하고싶은뎅</p>
-                    </li>
-                    <li
-                        style={{
-                            width: '90px',
-                            marginRight: '15px',
-                        }}
-                    >
-                        <p>2022-02-11</p>
-                    </li>
-                    <li
-                        style={{
-                            width: '90px',
-                            marginRight: '15px',
-                        }}
-                    >
-                        <p>ha***</p>
-                    </li>
-                </ul>
-            </section>
+                        <li
+                            style={{
+                                width: '90PX',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>미처리</p>
+                        </li>
+                        <li
+                            style={{
+                                width: '825px',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>제품에문제가있어서 교환하고싶은뎅</p>
+                        </li>
+                        <li
+                            style={{
+                                width: '90px',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>2022-02-11</p>
+                        </li>
+                        <li
+                            style={{
+                                width: '90px',
+                                marginRight: '15px',
+                            }}
+                        >
+                            <p>ha***</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 }

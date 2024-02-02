@@ -37,7 +37,22 @@
     }
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .inner {
     width: 1245px;
     margin: 0 auto;
+}
+
+a {
+    cursor: pointer;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
 }

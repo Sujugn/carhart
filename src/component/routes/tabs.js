@@ -6,10 +6,10 @@ import ReviewTab from './review';
 export default function Tabs() {
     const tabContent = [
         { id: 'tab01', title: '탭메뉴01', subtitle: '서브타이틀', content: '컨텐츠내용' },
-        { id: 'tab02', title: '탭메뉴02', subtitle: '서브타이틀', content: <ReviewTab /> },
-        { id: 'tab03', title: '탭메뉴03', subtitle: '서브타이틀', content: <InquiryTab /> },
-        { id: 'tab04', title: '탭메뉴04', subtitle: '서브타이틀', content: '컨텐츠내용' },
-        { id: 'tab05', title: '배송안내', subtitle: '서브타이틀', content: '컨텐츠내용' },
+        { id: 'tab02', title: '탭메뉴02', subtitle: '', content: <ReviewTab /> },
+        { id: 'tab03', title: '탭메뉴03', subtitle: '', content: <InquiryTab /> },
+        { id: 'tab04', title: '배송안내', subtitle: '배송안내', content: '컨텐츠내용' },
+        { id: 'tab05', title: '안내사항', subtitle: '안내사항', content: '컨텐츠내용' },
     ];
 
     //색상변경 상태함수
