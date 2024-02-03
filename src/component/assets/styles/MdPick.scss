@@ -1,0 +1,37 @@
+.mdpick {
+    margin: 70px 0;
+    //공통 처리하기
+
+    .mdpick-inner {
+        .title {
+            margin: 30px 0;
+            text-align: center;
+            font-size: 24px;
+            //공통
+        }
+
+        .md-content {
+            display: flex;
+
+            .content-item {
+                width: 195px;
+                height: 300px;
+                background-color: #ddd;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: width 0.3s ease;
+
+                &.active {
+                    width: 615px;
+                }
+            }
+        }
+    }
+}
+//아코디언 구현
+//열렸을때 : 615
+// 접혔을때 : 195
+// 첫번째 content-item이 active 되있게 기본 설정 해두기

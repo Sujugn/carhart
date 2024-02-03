@@ -104,6 +104,10 @@ export default function Header() {
                         <Link to="/login">로그인</Link>
                         <Link to="/join">회원가입</Link>
                         <Link>주문조회</Link>
+                        <Link to="/Detail">디테일페이지</Link>
+                        <Link to="/sub">서브페이지</Link>
+                        <Link to="/toggle">토글페이지</Link>
+                        <Link to="/Map">지도찾기</Link>
                         <a>
                             <p>검색</p>
                             <Sidebar width={600}>

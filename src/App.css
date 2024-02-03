@@ -56,3 +56,14 @@ a {
 body {
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}

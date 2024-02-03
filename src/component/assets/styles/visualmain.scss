@@ -1,10 +1,57 @@
 .visualmain {
-    .visual-img {
-        background-color: black;
-        img {
-        }
-    }
+    .visualmain-inner {
+        .slide-container {
+            position: relative;
+            .img-block {
+                width: 100%;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
 
-    .visual-inner {
+            .slick-prev,
+            .slick-next {
+                font-size: 24px;
+                color: white;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                opacity: 0; /* 초기에는 투명하게 설정 */
+                transition: opacity 0.3s ease; /* 투명도 전환 효과 추가 */
+            }
+
+            .slide-container:hover .slick-prev,
+            .slide-container:hover .slick-next {
+                opacity: 1; /* 마우스 호버 시 투명도를 1로 변경 */
+            }
+
+            .text-block {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: white;
+
+                z-index: 2;
+                h3 {
+                    font-size: 36px;
+                }
+
+                p {
+                    font-size: 24px;
+                    margin: 15px 0;
+                }
+
+                .visual-btn {
+                    width: 100px;
+                    height: 40px;
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
     }
 }

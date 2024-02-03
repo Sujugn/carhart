@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { MdClose } from 'react-icons/md';
 import { IoCall } from 'react-icons/io5';
 import { GoLocation } from 'react-icons/go';
+import { GrFormSearch } from 'react-icons/gr';
 
 export default function Modal({ closeModal }) {
     const settings = {
@@ -40,7 +41,10 @@ export default function Modal({ closeModal }) {
                     <div>슬라이더5</div>
                 </Slider>
                 <div className="zoom-store">
-                    <button>확대보기</button>
+                    <button className="flex">
+                        <GrFormSearch size={22} />
+                        <p>확대보기</p>
+                    </button>
                 </div>
 
                 <div className="flex-between">
