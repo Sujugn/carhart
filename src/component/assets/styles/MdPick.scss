@@ -15,8 +15,8 @@
 
             .content-item {
                 width: 195px;
-                height: 300px;
-                background-color: #ddd;
+                height: 400px;
+                background-color: #e8e8e8;
                 margin-right: 10px;
                 display: flex;
                 align-items: center;
@@ -31,7 +31,29 @@
         }
     }
 }
-//아코디언 구현
-//열렸을때 : 615
-// 접혔을때 : 195
-// 첫번째 content-item이 active 되있게 기본 설정 해두기
+
+.hover-desc {
+    position: absolute;
+    right: 0;
+    width: calc(615px / 2);
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    opacity: 0; /* 초기에는 투명 */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 트랜지션 효과 추가 */
+
+    .price {
+        margin: 10px 0;
+    }
+    .content-item:hover & {
+        opacity: 1; /* 호버 시 투명도 1 (나타남) */
+    }
+}

@@ -11,13 +11,41 @@ import JoinPage from './component/routes/join';
 import CartPage from './component/routes/cart';
 import DetailPage from './component/layout/Detail';
 import SubPage from './component/layout/Sub';
-import SearchSidebar from './component/routes/Search';
+// import SearchSidebar from './component/routes/Search';
 import MapPage from './component/routes/Map';
+import Modal from './component/Modal/Modal';
+import Pratice from './component/routes/pratice';
 
 function App() {
+    // //모달 상태관리함수
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalContent, setModalContent] = useState(null);
+
+    const openModal = (title, content) => {
+        setModalTitle(title);
+        setModalContent(content);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalTitle('');
+        setModalContent(null);
+        setIsModalOpen(false);
+    };
     return (
         <>
-            <Header />
+            <div>
+                <Header openModal={openModal} />
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                    title={modalTitle}
+                >
+                    {modalContent}
+                </Modal>
+            </div>
+
             <Routes>
                 <Route
                     path="/"
@@ -45,16 +73,27 @@ function App() {
                     path="/Sub"
                     element={<SubPage />}
                 ></Route>
-                <Route
-                    path="/Search"
-                    element={<SearchSidebar />}
-                ></Route>
+
                 <Route
                     path="/Map"
                     element={<MapPage />}
                 ></Route>
+                <Route
+                    path="/pratice"
+                    element={<Pratice />}
+                ></Route>
             </Routes>
             <Footer />
+
+            <div>
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                    title={modalTitle}
+                >
+                    {modalContent}
+                </Modal>
+            </div>
         </>
     );
 }

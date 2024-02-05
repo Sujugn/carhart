@@ -22,7 +22,12 @@ export default function Modal({ closeModal }) {
     };
 
     return (
-        <div className="modal">
+        <div
+            className="modal"
+            style={{
+                display: 'none',
+            }}
+        >
             <div className="modal-close">
                 <button onClick={closeModal}>
                     <MdClose size={30} />

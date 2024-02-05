@@ -61,7 +61,7 @@ export default function VisualMain() {
                             <div className="text-block">
                                 <h3>{slide.title}</h3>
                                 <p>{slide.desc}</p>
-                                <button className="visual-btn">보러가기</button>
+                                <button className="more-btn">보러가기</button>
                             </div>
                         </div>
                     ))}

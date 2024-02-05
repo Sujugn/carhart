@@ -1,0 +1,22 @@
+.insta {
+    margin: 60px 0;
+    //공통
+    .insta-inner {
+        .title {
+            font-size: 24px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        //공통 (h3으로 작성했는지 확인)
+
+        .insta-img {
+            width: 156px;
+            height: 156px;
+
+            margin: 0 auto;
+        }
+
+        //이미지 확장시 300x300으로 변경하는 로직짜기
+    }
+}

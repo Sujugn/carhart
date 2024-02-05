@@ -67,3 +67,15 @@ body {
     display: flex;
     align-items: center;
 }
+
+.more-btn {
+    width: 105px;
+    height: 35px;
+    font-size: 12px;
+    border-radius: 5px;
+
+    padding: 10px;
+
+    background-color: #ffbf00;
+}
+/* 상품 보러가기 버튼 */

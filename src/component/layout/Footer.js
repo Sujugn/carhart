@@ -2,13 +2,40 @@ import React from 'react';
 import '../assets/styles/Footer.scss';
 import { Link } from 'react-router-dom';
 
+//icon
+import { IoLogoInstagram } from 'react-icons/io';
+import { ImFacebook2 } from 'react-icons/im';
+import { IoLogoYoutube } from 'react-icons/io';
+import { FaPinterestSquare } from 'react-icons/fa';
+import { PiSoundcloudLogo } from 'react-icons/pi';
+
 export default function Footer() {
     const snsData = [
-        { id: 'sns01', name: '인스타', url: 'https://www.instagram.com/carharttwip_kr' },
-        { id: 'sns02', name: '페이스북', url: 'https://www.facebook.com/Carhartt/' },
-        { id: 'sns03', name: '유투브', url: 'https://www.youtube.com/hashtag/%EC%B9%BC%ED%95%98%ED%8A%B8' },
-        { id: 'sns04', name: '핀터레스트', url: 'https://www.pinterest.co.kr/Carhartt/' },
-        { id: 'sns05', name: '사운드플레이', url: 'https://www.carhartt-wip.com/musicplayer' },
+        {
+            id: 'sns01',
+            name: '인스타',
+            icon: <IoLogoInstagram size={45} />,
+            url: 'https://www.instagram.com/carharttwip_kr',
+        },
+        { id: 'sns02', name: '페이스북', icon: <ImFacebook2 size={30} />, url: 'https://www.facebook.com/Carhartt/' },
+        {
+            id: 'sns03',
+            name: '유투브',
+            icon: <IoLogoYoutube size={40} />,
+            url: 'https://www.youtube.com/hashtag/%EC%B9%BC%ED%95%98%ED%8A%B8',
+        },
+        {
+            id: 'sns04',
+            name: '핀터레스트',
+            icon: <FaPinterestSquare size={35} />,
+            url: 'https://www.pinterest.co.kr/Carhartt/',
+        },
+        {
+            id: 'sns05',
+            name: '사운드플레이',
+            icon: <PiSoundcloudLogo size={35} />,
+            url: 'https://www.carhartt-wip.com/musicplayer',
+        },
     ];
 
     const infoData = [
@@ -44,6 +71,62 @@ export default function Footer() {
 
     return (
         <div className="footer">
+            <div style={{ backgroundColor: 'white' }}>
+                <ul
+                    style={{
+                        color: 'black',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        fontSize: '16px',
+                    }}
+                >
+                    <li
+                        style={{
+                            borderRight: '1px solid black',
+                            padding: '0 50px',
+                            margin: '30px 0',
+                        }}
+                    >
+                        칼하트웹에 대하여
+                    </li>
+                    <li
+                        style={{
+                            borderRight: '1px solid black',
+                            padding: '0 50px',
+                            margin: '30px 0',
+                        }}
+                    >
+                        칼하트웹에 라디오
+                    </li>
+                    <li
+                        style={{
+                            borderRight: '1px solid black',
+                            padding: '0 50px',
+                            margin: '30px 0',
+                        }}
+                    >
+                        기업의 사회적 책임
+                    </li>
+                    <li
+                        style={{
+                            borderRight: '1px solid black',
+                            padding: '0 50px',
+                            margin: '30px 0',
+                        }}
+                    >
+                        채용안내
+                    </li>
+                    <li
+                        style={{
+                            borderRight: '1px solid black',
+                            padding: '0 50px',
+                            margin: '30px 0',
+                        }}
+                    >
+                        일반 적합 인증
+                    </li>
+                </ul>
+            </div>
             <div className="footer-inner inner">
                 <div className="section">
                     <div className="section-block">
@@ -65,7 +148,7 @@ export default function Footer() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {sns.name}
+                                        {sns.icon}
                                     </Link>
                                 </li>
                             ))}

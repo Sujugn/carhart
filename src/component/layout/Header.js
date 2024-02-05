@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import '../assets/styles/Header.scss';
 import { Link, NavLink } from 'react-router-dom';
-
-// 공통
 import logoWhite from '../assets/img/logoWhite.png';
-import Sidebar from '../routes/Sidebar';
-import SearchSidebar from '../routes/Search';
+import SearchModal from '../Modal/SearchModal';
+import CartModal from '../Modal/CartModal';
 
-export default function Header() {
-    // const [isOpenSidebar, setOpenSidebar] = useState(false);
-    // const handleSidebar = () => {
-    //     setOpenSidebar(!isOpenSidebar);
-    // };
-
+export default function Header({ openModal }) {
     const categories = [
         {
             id: 'new',
@@ -24,10 +17,10 @@ export default function Header() {
             name: 'TOP',
             image: 'top 이미지',
             submenu: [
-                { id: 'top-sweat', name: '스웨트' },
-                { id: 'top-knit', name: '니트' },
-                { id: 'top-shirt', name: '셔츠' },
-                { id: 'top-skirt', name: '스커트' },
+                { id: 'top-sweat', name: '스웨트', image: '스웨트 이미지' },
+                { id: 'top-knit', name: '니트', image: '니트 이미지' },
+                { id: 'top-shirt', name: '셔츠', image: '셔츠 이미지' },
+                { id: 'top-skirt', name: '스커트', image: '스커트 이미지' },
             ],
         },
         {
@@ -35,9 +28,9 @@ export default function Header() {
             name: 'BOTTOM',
             image: 'bottom 이미지',
             submenu: [
-                { id: 'bottom-pant', name: '바지' },
-                { id: 'bottom-shorts', name: '반바지' },
-                { id: 'bottom-skirt', name: '스커트' },
+                { id: 'bottom-pant', name: '바지', image: '바지 이미지' },
+                { id: 'bottom-shorts', name: '반바지', image: '반바지 이미지' },
+                { id: 'bottom-skirt', name: '스커트', image: '스커트 이미지' },
             ],
         },
         {
@@ -45,12 +38,12 @@ export default function Header() {
             name: 'ACC',
             image: 'ACC 이미지',
             submenu: [
-                { id: 'ACC-CAP', name: '모자' },
-                { id: 'ACC-BAG', name: '가방' },
-                { id: 'ACC-ACCESSORY', name: '악세사리' },
-                { id: 'ACC-GADGET', name: '가젯' },
-                { id: 'ACC-SHOES', name: '신발' },
-                { id: 'ACC-UNDERWEAR', name: '언더웨어' },
+                { id: 'ACC-CAP', name: '모자', image: '모자 이미지' },
+                { id: 'ACC-BAG', name: '가방', image: '가방 이미지' },
+                { id: 'ACC-ACCESSORY', name: '악세사리', image: '악세사리 이미지' },
+                { id: 'ACC-GADGET', name: '가젯', image: '가젯 이미지' },
+                { id: 'ACC-SHOES', name: '신발', image: '신발 이미지' },
+                { id: 'ACC-UNDERWEAR', name: '언더웨어', image: '언더웨어 이미지' },
             ],
         },
         {
@@ -58,8 +51,8 @@ export default function Header() {
             name: 'PROMOTION',
             image: 'PROMOTION 이미지',
             submenu: [
-                { id: 'promotion-collaboration', name: '콜라보레이션' },
-                { id: 'promotion-special', name: '특집' },
+                { id: 'promotion-collaboration', name: '콜라보레이션', image: '콜라보레이션 이미지' },
+                { id: 'promotion-special', name: '특집', image: '특집 이미지' },
             ],
         },
         { id: 'sale', name: 'SALE', submenu: [{ id: 'sale', name: '세일' }] },
@@ -67,25 +60,46 @@ export default function Header() {
             id: 'brand',
             name: 'BRAND',
             submenu: [
-                { id: 'brand-story', name: '브랜드스토리' },
-                { id: 'brand-lookbook', name: '룩북' },
-                { id: 'brand-map', name: '매장' },
+                { id: 'brand-story', name: '브랜드스토리', image: '브랜드스토리 이미지' },
+                { id: 'brand-lookbook', name: '룩북', image: '룩북 이미지' },
+                { id: 'brand-map', name: '매장', image: '매장 이미지' },
             ],
         },
     ];
-    // const handleMenuHover = (categoryId) => {
-    //     setOpenMenu(categoryId);
-    //     const hoveredCategory = categories.find((category) => category.id === categoryId);
-    //     if (hoveredCategory && hoveredCategory.submenu) {
-    //         setHoverMenuItems(hoveredCategory.submenu);
-    //     } else {
-    //         setHoverMenuItems([]);
-    //     }
+
+    // const [hoveredCategory, setHoveredCategory] = useState(null);
+    // const [hoveredSubItem, setHoveredSubItem] = useState(null);
+
+    // const handleCategoryMouseEnter = (categoryId) => {
+    //     setHoveredCategory(categoryId);
+    //     setHoveredSubItem(null); // 새로운 카테고리에 진입하면 서브 아이템 초기화
     // };
 
-    // const handleMenuLeave = () => {
-    //     setOpenMenu(null);
+    // const handleSubItemMouseEnter = (subItemId) => {
+    //     setHoveredSubItem(subItemId);
     // };
+
+    // const handleMouseLeave = () => {
+    //     setHoveredCategory(null);
+    //     setHoveredSubItem(null);
+    // };
+
+    // const SubmenuItem = ({ subItem, isHovered }) => (
+    //     <div
+    //         key={subItem.id}
+    //         className={`submenu-item ${isHovered ? 'hovered' : ''}`}
+    //         onMouseEnter={() => handleSubItemMouseEnter(subItem.id)}
+    //         onMouseLeave={handleMouseLeave}
+    //     >
+    //         <img
+    //             src={subItem.image}
+    //             alt={subItem.name}
+    //         />
+    //         <NavLink to={`/your-path/${subItem.id}`}>
+    //             <span>{subItem.name}</span>
+    //         </NavLink>
+    //     </div>
+    // );
 
     return (
         <div className="header">
@@ -101,6 +115,9 @@ export default function Header() {
                     </div>
 
                     <div className="login-block">
+                        <Link to="/cart">장바구니</Link>
+
+                        <Link to="/pratice">연습창</Link>
                         <Link to="/login">로그인</Link>
                         <Link to="/join">회원가입</Link>
                         <Link>주문조회</Link>
@@ -108,60 +125,55 @@ export default function Header() {
                         <Link to="/sub">서브페이지</Link>
                         <Link to="/toggle">토글페이지</Link>
                         <Link to="/Map">지도찾기</Link>
-                        <a>
-                            <p>검색</p>
-                            <Sidebar width={600}>
-                                <SearchSidebar />
-                            </Sidebar>
-                        </a>
-                        {/* <Sidebar width={600}>
-                            <SearchSidebar />
-                        </Sidebar> */}
-                        <Link to="/cart">장바구니</Link>
+                        <Link onClick={() => openModal('검색title입니다.', <SearchModal />)}>검색</Link>
+                        <Link onClick={() => openModal('미니장바구니', <CartModal />)}>미니장바구니</Link>
                     </div>
                 </nav>
-
-                <nav className="lnb">
+                {/* <nav className="lnb">
                     <div className="lnb-block">
-                        {/* {categories.map((category) => (
+                        {categories.map((category) => (
                             <div
                                 key={category.id}
                                 className="menu-item-wrapper"
+                                onMouseEnter={() => handleCategoryMouseEnter(category.id)}
+                                onMouseLeave={handleMouseLeave}
                             >
                                 <NavLink
                                     id={category.id}
                                     to={`/your-path/${category.id}`}
-                                    className={`menu-item ${openMenu === category.id ? 'expanded' : ''}`}
-                                    onMouseEnter={() => handleMenuHover(category.id)}
-                                    onMouseLeave={handleMenuLeave}
                                 >
                                     <span>{category.name}</span>
                                 </NavLink>
+
+                                <div
+                                    className={`submenu-wrapper ${hoveredCategory === category.id ? 'visible' : ''}`}
+                                    style={{
+                                        position: 'absolute',
+                                        top: '106px',
+                                        zIndex: 999,
+                                        backgroundColor: 'white',
+                                        fontSize: '12px',
+                                    }}
+                                >
+                                    <div className="submenu">
+                                        {category.submenu &&
+                                            category.submenu.map((subItem) => (
+                                                <SubmenuItem
+                                                    key={subItem.id}
+                                                    subItem={subItem}
+                                                    isHovered={hoveredCategory === category.id}
+                                                />
+                                            ))}
+                                    </div>
+                                </div>
                             </div>
-                        ))} */}
+                        ))}
                     </div>
 
                     <div className="rank-block">
                         <p>인기순위</p>
                     </div>
-                </nav>
-
-                <nav
-                    className="hover-menu"
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}
-                >
-                    {/* {hoverMenuItems.map((menuItem) => (
-                        <NavLink
-                            key={menuItem.id}
-                            to={`/your-path/${menuItem.id}`}
-                        >
-                            <span>{menuItem.name}</span>
-                        </NavLink>
-                    ))} */}
-                </nav>
+                </nav> */}
             </div>
         </div>
     );

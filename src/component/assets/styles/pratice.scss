@@ -1,0 +1,25 @@
+.item-box {
+    margin: 30px 0;
+}
+
+.pratice-cartstore {
+    h3 {
+        margin: 50px 0;
+    }
+}
+
+.total-price {
+    li {
+        &:nth-child(2) {
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+        }
+    }
+}
+
+.cart-btn {
+    background-color: #ccc;
+    padding: 5px;
+    color: white;
+}
