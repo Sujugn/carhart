@@ -5,9 +5,11 @@ import '../assets/styles/LookBook.scss';
 
 //기본 이미지
 import look01 from '../assets/img/look01.png';
+import look02 from '../assets/img/look02.png';
 
 //탭 이미지
 import look01tab from '../assets/img/look01.png';
+import look02tab from '../assets/img/look02.png';
 
 export default function LookBook() {
     //데이터
@@ -48,8 +50,16 @@ export default function LookBook() {
                             </div>
                             <div className="content-right">
                                 <div className="content-top">
-                                    <div className="lookbook-video">비디오존</div>
+                                    <div className="lookbook-video">
+                                        <video>
+                                            <source
+                                                src="example.mp4"
+                                                type="video/mp4"
+                                            ></source>
+                                        </video>
+                                    </div>
                                 </div>
+
                                 <div className="content-bottom flex">
                                     <div className="lookbook-img"></div>
                                     <div className="lookbook-img"></div>

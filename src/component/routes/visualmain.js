@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import '../assets/styles/visualmain.scss';
 
+//react-slick
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-//화살표 icon
+//arrow icon
 import { MdArrowBackIos } from 'react-icons/md';
 import { MdArrowForwardIos } from 'react-icons/md';
 
-//visual-img
+//img
 import visual01 from '../assets/img/qhklw8yc7tbn.jpg';
-import visual02 from '../assets/img/rh50ybbn2e01.jpg';
-// import visual03 from '../assets/img/rh50ybbn2e01.jpg';
+import visual02 from '../assets/img/vb91s6lth1dg.jpg';
+import visual03 from '../assets/img/urgrq141ued1.jpg';
 
 export default function VisualMain() {
     //react-slick 설정
@@ -30,7 +30,7 @@ export default function VisualMain() {
     const visualData = [
         { id: 'visual01', title: '2024봄/여름 LOOKBOOK', desc: '설명글', image: visual01 },
         { id: 'visual02', title: 'slide2', desc: '설명글', imgage: visual02 },
-        { id: 'visual03', title: 'slide3', desc: '설명글' },
+        { id: 'visual03', title: 'slide3', desc: '설명글', imgage: visual03 },
         { id: 'visual04', title: 'slide4', desc: '설명글' },
         { id: 'visual05', title: 'slide5', desc: '설명글' },
     ];

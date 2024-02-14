@@ -1,0 +1,28 @@
+.login-layout {
+    width: 700px;
+    margin: 70px auto;
+}
+
+.logo-img {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.logo-img img {
+    width: 100%;
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.sub-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+}
+
+.content {
+    margin: 20px 0;
+}

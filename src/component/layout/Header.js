@@ -125,7 +125,7 @@ export default function Header({ openModal }) {
                         <Link to="/sub">서브페이지</Link>
                         <Link to="/toggle">토글페이지</Link>
                         <Link to="/Map">지도찾기</Link>
-                        <Link onClick={() => openModal('검색title입니다.', <SearchModal />)}>검색</Link>
+                        <Link onClick={() => openModal('Search', <SearchModal />)}>검색</Link>
                         <Link onClick={() => openModal('미니장바구니', <CartModal />)}>미니장바구니</Link>
                     </div>
                 </nav>

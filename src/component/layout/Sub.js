@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import '../assets/styles/sub.scss';
+import axios from 'axios';
 
 //utils
 import Toggle from '../utils/toggle';
@@ -15,6 +17,20 @@ import ProductList from '../routes/ProductList';
 import Sidebar from '../routes/Sidebar';
 
 export default function SubPage() {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await axios.get('/');
+                setProducts(result.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div>
             <VisualSub></VisualSub>
@@ -62,26 +78,8 @@ export default function SubPage() {
                             </a>
                         </div>
                     </div>
-                    {/* 
-                    <ul className="content-block">
-                        <li>
-                            <div className="product-info">
-                                <div className="product-img">상품이미지</div>
-                                <div className="label">
-                                    <strong className="label-new">new</strong>
-                                    <strong className="label-best">best</strong>
-                                </div>
-                                <strong className="product-name">상품이름</strong>
-                                <p className="product-desc">상품정보</p>
-                                <strong className="product-price">₩ 상품가격</strong>
-                                <button className="cart-btn">
-                                    <img src={cartIcon}></img>
-                                </button>
-                            </div>
-                        </li>
-                    </ul> */}
 
-                    <ProductList></ProductList>
+                    <ProductList products={products}></ProductList>
                 </div>
             </div>
         </div>
