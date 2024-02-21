@@ -1,0 +1,28 @@
+{
+    "top": {
+        "tshirt": [],
+
+        "shirt": [],
+
+        "jacket": [],
+
+        "sweater": [],
+
+        "knit": []
+    },
+
+    "bottom": {
+        "pants": [{}],
+        "shorts": [{}],
+        "skirt": [{}]
+    },
+
+    "acc": {
+        "hat": [{}],
+        "bag": [{}],
+        "accessories": [{}],
+        "gadget": [{}],
+        "shoes": [{}],
+        "underwear": [{}]
+    }
+}

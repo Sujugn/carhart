@@ -123,3 +123,17 @@ body {
     border-radius: 50px;
     font-weight: bold;
 }
+
+.margin-side {
+    margin: 15px 0;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.border-active {
+    border: 3px solid #4136bf;
+    box-sizing: border-box;
+}

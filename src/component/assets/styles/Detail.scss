@@ -17,10 +17,15 @@
             }
 
             .main-block {
-                width: 100%;
+                display: flex;
+                justify-content: center;
                 height: 520px;
 
                 background-color: #e8e8e8;
+
+                img {
+                    height: 100%;
+                }
             }
 
             .sub-block {
@@ -33,7 +38,13 @@
                 li {
                     width: 90px;
                     height: 90px;
-                    background-color: gray;
+                    background-color: #e8e8e8;
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        height: 100%;
+                    }
                 }
             }
 
@@ -61,6 +72,14 @@
                 .product-price {
                     font-size: 11px;
                     color: #3e3e3e;
+                }
+
+                .product-color {
+                    width: 30px;
+                    img {
+                        height: 100%;
+                        background-color: #e8e8e8;
+                    }
                 }
             }
 
@@ -201,10 +220,15 @@
                     margin: 15px 0;
                     .colors {
                         li {
+                            display: flex;
+                            justify-content: center;
                             width: 90px;
                             height: 90px;
-                            background-color: gray;
+                            background-color: #e8e8e8;
                             margin-right: 15px;
+                            img {
+                                height: 100%;
+                            }
                         }
                     }
                 }

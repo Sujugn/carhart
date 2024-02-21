@@ -48,6 +48,11 @@
 
     .main-content {
         width: calc(100% - 300px);
+
+        .category-name {
+            font-size: 30px;
+            margin: 30px 0;
+        }
         .sort-block {
             display: flex;
             justify-content: space-between;

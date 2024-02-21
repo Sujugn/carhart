@@ -2,11 +2,11 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import Home from './component/layout/Home';
+// import Home from './component/layout/Home';
 import Header from './component/layout/Header';
 import Footer from './component/layout/Footer';
-import LoginPage from './component/routes/login';
 import JoinPage from './component/routes/join';
 import CartPage from './component/routes/cart';
 import DetailPage from './component/layout/Detail';
@@ -19,16 +19,14 @@ import Form from './component/layout/Form';
 import FindLayout from './component/layout/FindLayout';
 import ProductList from './component/routes/ProductList';
 
-function App() {
-    //데이터 불러오기
-    // const [data, setData] = useState([]);
-    // useEffect(() => {
-    //     fetch('https://datalab.naver.com/shoppingInsight/getKeywordRank.naver?timeUnit=date&cid=50000000')
-    //         .then((response) => response.json())
-    //         .then((data) => setData(data))
-    //         .catch((error) => console.error('Error fetching data:', error));
-    // }, []);
+//data
+import manData from './data/madata.json';
 
+//new
+// import { Auth } from './pages';
+import Home from './component/layout/Home';
+
+function App() {
     // //모달 상태관리함수
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalTitle, setModalTitle] = useState('');
@@ -45,8 +43,22 @@ function App() {
         setModalContent(null);
         setIsModalOpen(false);
     };
+
+    const { item_id } = useParams();
+    const [items, setItems] = useState(manData);
+
     return (
         <>
+            {/* <Route
+                exact
+                path="/"
+                Component={Home}
+            ></Route>
+            <Route
+                exact
+                path="/auth"
+                Component={Auth}
+            ></Route> */}
             <div>
                 <Header openModal={openModal} />
                 <Modal
@@ -65,11 +77,6 @@ function App() {
                 ></Route>
 
                 <Route
-                    path="/login"
-                    element={<LoginPage />}
-                ></Route>
-
-                <Route
                     path="/join"
                     element={
                         <Form
@@ -85,19 +92,13 @@ function App() {
                     element={<CartPage />}
                 ></Route>
                 <Route
-                    path="/Detail"
-                    element={<DetailPage />}
+                    path="/Detail/:item_id"
+                    element={<DetailPage items={items} />}
                 ></Route>
 
                 <Route
                     path="/Sub"
-                    element={<SubPage />}
-                    render={(props) => (
-                        <SubPage
-                        // {...props}
-                        // data={data}
-                        />
-                    )}
+                    element={<SubPage items={items} />}
                 ></Route>
 
                 <Route
@@ -114,8 +115,6 @@ function App() {
                     element={<FindLayout title="아이디 찾기" />}
                 ></Route>
             </Routes>
-
-            <ProductList></ProductList>
 
             <Footer />
 

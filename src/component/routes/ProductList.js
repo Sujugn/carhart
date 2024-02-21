@@ -1,81 +1,81 @@
-// import React, { useState } from 'react';
-// import '../assets/styles/ProductList.scss';
-// import Users from '../data/Users';
-// import { MdOutlineShoppingCart } from 'react-icons/md';
-// import Sidebar from './Sidebar';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../assets/styles/ProductList.scss';
+import { BsCart2 } from 'react-icons/bs';
 
-// export default function ProductList() {
-//     // const data = props.data;
+export default function ProductList({
+    items,
+    priceFilter,
+    handleChange,
+    sortByLowPrice,
+    sortByHighPrice,
+    excludeSoldOut,
+    handleExcludeSoldout,
+}) {
+    const navigate = useNavigate();
 
-//     // const productListItems = data.map((item) => (
-//     //     <li key={item.rank}>
-//     //         {item.keyword} - {item.linkId}
-//     //     </li>
-//     // ));
+    const handleDetailClick = (itemId) => {
+        navigate(`/Detail/${itemId}`);
+    };
 
-//     return (
-//         <div className="productlist">
-//             {/* 데이터를 전달하는 콜백 함수를 Users 컴포넌트에 전달
-//             <Users onDataFetched={handleDataFetched} /> */}
+    //호버시 item 이미지 변경
+    const [hoveredItemId, setHoveredItemId] = useState(null);
 
-//             {/* <ul className="content-block">{productListItems}</ul> */}
-//         </div>
-//     );
-// }
+    const handleMouseEnter = (id) => {
+        setHoveredItemId(id);
+    };
 
-// // {data.map((item) => (
-// //     <li key={item.linkId}>
-// //         <div className="product-info">
-// //             {/* 이미지를 동적으로 렌더링 */}
-// //             <div className="product-img">
-// //                 {/* <img
-// //                     src={d.img}
-// //                     alt={d.title}
-// //                 /> */}
-// //             </div>
-// //             <div className="label">
-// //                 <strong className="label-new">new</strong>
-// //                 <strong className="label-best">best</strong>
-// //             </div>
-// //         </div>
-// //         <strong className="product-name">{item.keyword}</strong>
-// //         <p className="product-desc">상품정보</p>
-// //         <div className="flex">
-// //             {/* <strong className="product-price">₩ {d.price}</strong> */}
-// //             <button
-// //                 className="cart-btn"
-// //                 // onClick={() => handleSidebarToggle}
-// //             >
-// //                 <MdOutlineShoppingCart size={30} />
-// //             </button>
-// //         </div>
-// //     </li>
-// // ))}
+    const handleMouseLeave = () => {
+        setHoveredItemId(null);
+    };
 
-import React from 'react';
-
-const ProductList = ({ products }) => {
-    if (!products || !Array.isArray(products) || products.length === 0) {
-        return <div>No products available</div>;
-    }
+    // 품절제외 필터
+    const filteredSoldout = excludeSoldOut ? items.filter((item) => !item.issoldout) : items;
 
     return (
-        <div>
-            <h1>Product List</h1>
-            <ul>
-                {products.map((product) => (
-                    <li key={product.title}>
-                        <img
-                            src={product.image_url}
-                            alt={product.title}
-                        />
-                        <a href={product.url}>{product.title}</a>
-                        <p>{product.date}</p>
+        <div className="productlist">
+            <ul className="content-block">
+                {filteredSoldout.map((item) => (
+                    <li
+                        key={item.id}
+                        onClick={() => handleDetailClick(item.id)}
+                    >
+                        <div className="product-info">
+                            <div className="product-img">
+                                <img
+                                    //src={item.images[0].defaultimg}
+                                    src={
+                                        hoveredItemId === item.id ? item.images[0].hoverimg : item.images[0].defaultimg
+                                    }
+                                    onMouseEnter={() => handleMouseEnter(item.id)}
+                                    onMouseLeave={handleMouseLeave}
+                                    alt={item.code}
+                                    className="default-img"
+                                />
+                                {item.issoldout && (
+                                    <div className="sold-out">
+                                        <p>sold out</p>
+                                    </div>
+                                )}
+                            </div>
+                            <div></div>
+                            <div className="label">
+                                <strong className="label-new">{item.label[0].new}</strong>
+                                {/* <strong className="label-best">{item.label[1].best}</strong> */}
+                            </div>
+                        </div>
+                        <div className="product-text">
+                            <strong className="product-name">{item.title}</strong>
+                            <p className="product-desc">{item.desc}</p>
+                            <strong className="product-price">₩ {item.price.toLocaleString()}</strong>
+                        </div>
+
+                        <button className="cart-btn">
+                            <BsCart2 size={30} />
+                        </button>
                     </li>
                 ))}
             </ul>
         </div>
     );
-};
-
-export default ProductList;
+}

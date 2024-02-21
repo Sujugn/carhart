@@ -1,109 +1,168 @@
+// import React, { useState } from 'react';
+// import '../assets/styles/Header.scss';
+
+// export default function Header({ openModal }) {
+//     return (
+//         <div className="header">
+//             <div className="header-inner">
+//                 <nav className="gnb">
+//                     <div className="logo-block">
+//                         <Link to="/">
+//                             <img
+//                                 src={logoWhite}
+//                                 alt="Logo"
+//                             />
+//                         </Link>
+//                     </div>
+
+//                     <div className="login-block">
+//                         <Link to="/cart">장바구니</Link>
+
+//                         <Link to="/pratice">연습창</Link>
+//                         <Link to="/login">로그인</Link>
+//                         <Link to="/join">회원가입</Link>
+//                         <Link>주문조회</Link>
+//                         <Link to="/Detail">디테일페이지</Link>
+//                         <Link to="/sub">서브페이지</Link>
+//                         <Link to="/toggle">토글페이지</Link>
+//                         <Link to="/Map">지도찾기</Link>
+//                         <Link onClick={() => openModal('Search', <SearchModal />)}>검색</Link>
+//                         <Link onClick={() => openModal('미니장바구니', <CartModal />)}>미니장바구니</Link>
+//                     </div>
+//                 </nav>
+//                 <nav className="lnb">
+//                     <div className="lnb-block">
+//                         <ul className="flex">
+//                             <li>NEW</li>
+//                             <li>TOP</li>
+//                             <li>BOTTOM</li>
+//                             <li>ACC</li>
+//                             <li>PROMOTION</li>
+//                             <li>SALES</li>
+//                             <li>BRAND</li>
+//                         </ul>
+//                     </div>
+
+//                     <div className="rank-block">
+//                         <p>인기순위</p>
+//                     </div>
+//                 </nav>
+//             </div>
+//         </div>
+//     );
+// }
+
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/Header.scss';
-import { Link, NavLink } from 'react-router-dom';
+import mandata from '../../data/madata.json';
 import logoWhite from '../assets/img/logoWhite.png';
 import SearchModal from '../Modal/SearchModal';
 import CartModal from '../Modal/CartModal';
 
-export default function Header({ openModal }) {
-    const categories = [
+//카테고리 호버이미지
+/*TOP*/
+import topImg from '../assets/img/card.png';
+import topImg2 from '../assets/img/card.png';
+
+/*BOTTOM*/
+import bottomImg from '../assets/img/card.png';
+import bottomImg2 from '../assets/img/card.png';
+
+/*TOP*/
+
+/*ACC*/
+
+/*PROMOTION*/
+
+const Header = () => {
+    const [isNavHovered, setIsNavHovered] = useState(false);
+    const [activeSubMenu, setActiveSubMenu] = useState(null);
+
+    const handleNavHover = () => {
+        setIsNavHovered(true);
+    };
+
+    const handleNavLeave = () => {
+        setIsNavHovered(false);
+        setActiveSubMenu(null);
+    };
+
+    const handleLabelHover = (label, img) => {
+        setActiveSubMenu(label);
+    };
+
+    const menuItems = [
         {
-            id: 'new',
-            name: 'NEW',
-            image: 'NEW 이미지',
+            label: 'NEW',
+            to: '/new',
+            categoryimg: null,
         },
         {
-            id: 'top',
-            name: 'TOP',
-            image: 'top 이미지',
-            submenu: [
-                { id: 'top-sweat', name: '스웨트', image: '스웨트 이미지' },
-                { id: 'top-knit', name: '니트', image: '니트 이미지' },
-                { id: 'top-shirt', name: '셔츠', image: '셔츠 이미지' },
-                { id: 'top-skirt', name: '스커트', image: '스커트 이미지' },
+            label: 'TOP',
+            to: '/top',
+            categoryimg: topImg,
+            categoryimg2: topImg2,
+            subMenu: [
+                { label: '자켓', to: '/jacket' },
+                { label: '스웨트', to: '/sweater' },
+                { label: '니트', to: '/knit' },
+                { label: '셔츠', to: '/shirt' },
+                { label: '티셔츠', to: '/tshirt' },
             ],
         },
         {
-            id: 'bottom',
-            name: 'BOTTOM',
-            image: 'bottom 이미지',
-            submenu: [
-                { id: 'bottom-pant', name: '바지', image: '바지 이미지' },
-                { id: 'bottom-shorts', name: '반바지', image: '반바지 이미지' },
-                { id: 'bottom-skirt', name: '스커트', image: '스커트 이미지' },
+            label: 'BOTTOM',
+            to: '/bottom',
+            categoryimg: null,
+            subMenu: [
+                { label: '바지', to: '/pants' },
+                { label: '반바지', to: '/shortpant' },
+                { label: '스커트', to: '/skirt' },
             ],
         },
         {
-            id: 'acc',
-            name: 'ACC',
-            image: 'ACC 이미지',
-            submenu: [
-                { id: 'ACC-CAP', name: '모자', image: '모자 이미지' },
-                { id: 'ACC-BAG', name: '가방', image: '가방 이미지' },
-                { id: 'ACC-ACCESSORY', name: '악세사리', image: '악세사리 이미지' },
-                { id: 'ACC-GADGET', name: '가젯', image: '가젯 이미지' },
-                { id: 'ACC-SHOES', name: '신발', image: '신발 이미지' },
-                { id: 'ACC-UNDERWEAR', name: '언더웨어', image: '언더웨어 이미지' },
+            label: 'ACC',
+            to: '/acc',
+            categoryimg: null,
+            subMenu: [
+                { label: '모자', to: '/cap' },
+                { label: '가방', to: '/bag' },
+                { label: '악세사리', to: '/Accessory' },
+                { label: '가젯', to: '/gadget' },
+                { label: '신발', to: '/shoes' },
             ],
         },
         {
-            id: 'promotion',
-            name: 'PROMOTION',
-            image: 'PROMOTION 이미지',
-            submenu: [
-                { id: 'promotion-collaboration', name: '콜라보레이션', image: '콜라보레이션 이미지' },
-                { id: 'promotion-special', name: '특집', image: '특집 이미지' },
+            label: 'RPOMOTION',
+            to: '/promotion',
+            categoryimg: null,
+            subMenu: [
+                { label: '콜라보레이션', to: '/collaboration' },
+                { label: '특집', to: '/special' },
             ],
         },
-        { id: 'sale', name: 'SALE', submenu: [{ id: 'sale', name: '세일' }] },
         {
-            id: 'brand',
-            name: 'BRAND',
-            submenu: [
-                { id: 'brand-story', name: '브랜드스토리', image: '브랜드스토리 이미지' },
-                { id: 'brand-lookbook', name: '룩북', image: '룩북 이미지' },
-                { id: 'brand-map', name: '매장', image: '매장 이미지' },
+            label: 'SALE',
+            to: '/sale',
+            categoryimg: null,
+            subMenu: [{ label: '세일', to: '/sale' }],
+        },
+        {
+            label: 'BRAND',
+            to: '/brand',
+            categoryimg: null,
+            subMenu: [
+                { label: '브랜드스토리', to: '/brandstroy' },
+                { label: '룩북', to: '/lookbook' },
+                { label: '매장', to: '/map' },
             ],
         },
     ];
 
-    // const [hoveredCategory, setHoveredCategory] = useState(null);
-    // const [hoveredSubItem, setHoveredSubItem] = useState(null);
-
-    // const handleCategoryMouseEnter = (categoryId) => {
-    //     setHoveredCategory(categoryId);
-    //     setHoveredSubItem(null); // 새로운 카테고리에 진입하면 서브 아이템 초기화
-    // };
-
-    // const handleSubItemMouseEnter = (subItemId) => {
-    //     setHoveredSubItem(subItemId);
-    // };
-
-    // const handleMouseLeave = () => {
-    //     setHoveredCategory(null);
-    //     setHoveredSubItem(null);
-    // };
-
-    // const SubmenuItem = ({ subItem, isHovered }) => (
-    //     <div
-    //         key={subItem.id}
-    //         className={`submenu-item ${isHovered ? 'hovered' : ''}`}
-    //         onMouseEnter={() => handleSubItemMouseEnter(subItem.id)}
-    //         onMouseLeave={handleMouseLeave}
-    //     >
-    //         <img
-    //             src={subItem.image}
-    //             alt={subItem.name}
-    //         />
-    //         <NavLink to={`/your-path/${subItem.id}`}>
-    //             <span>{subItem.name}</span>
-    //         </NavLink>
-    //     </div>
-    // );
-
     return (
-        <div className="header">
-            <div className="header-inner">
+        <header className="header">
+            <div className="header-inner inner">
                 <nav className="gnb">
                     <div className="logo-block">
                         <Link to="/">
@@ -116,65 +175,87 @@ export default function Header({ openModal }) {
 
                     <div className="login-block">
                         <Link to="/cart">장바구니</Link>
-
                         <Link to="/pratice">연습창</Link>
                         <Link to="/login">로그인</Link>
-                        <Link to="/join">회원가입</Link>
+                        <Link to="/register">회원가입</Link>
                         <Link>주문조회</Link>
                         <Link to="/Detail">디테일페이지</Link>
                         <Link to="/sub">서브페이지</Link>
                         <Link to="/toggle">토글페이지</Link>
                         <Link to="/Map">지도찾기</Link>
-                        <Link onClick={() => openModal('Search', <SearchModal />)}>검색</Link>
-                        <Link onClick={() => openModal('미니장바구니', <CartModal />)}>미니장바구니</Link>
+                        <Link>검색</Link>
+                        {/* <Link onClick={() => openModal('미니장바구니', <CartModal />)}>미니장바구니</Link> */}
                     </div>
                 </nav>
-                {/* <nav className="lnb">
-                    <div className="lnb-block">
-                        {categories.map((category) => (
-                            <div
-                                key={category.id}
-                                className="menu-item-wrapper"
-                                onMouseEnter={() => handleCategoryMouseEnter(category.id)}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                <NavLink
-                                    id={category.id}
-                                    to={`/your-path/${category.id}`}
-                                >
-                                    <span>{category.name}</span>
-                                </NavLink>
-
-                                <div
-                                    className={`submenu-wrapper ${hoveredCategory === category.id ? 'visible' : ''}`}
-                                    style={{
-                                        position: 'absolute',
-                                        top: '106px',
-                                        zIndex: 999,
-                                        backgroundColor: 'white',
-                                        fontSize: '12px',
-                                    }}
-                                >
-                                    <div className="submenu">
-                                        {category.submenu &&
-                                            category.submenu.map((subItem) => (
-                                                <SubmenuItem
-                                                    key={subItem.id}
-                                                    subItem={subItem}
-                                                    isHovered={hoveredCategory === category.id}
-                                                />
-                                            ))}
-                                    </div>
-                                </div>
-                            </div>
+                <div
+                    className="header-menu"
+                    onMouseEnter={handleNavHover}
+                    onMouseLeave={handleNavLeave}
+                >
+                    <ul className="menu-items">
+                        {menuItems.map((menuItem, index) => (
+                            <li key={index}>
+                                <Link to={menuItem.to}>{menuItem.label}</Link>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
+                    {isNavHovered && (
+                        <div className="nav-items">
+                            <div className="inner">
+                                <ul className="flex">
+                                    {menuItems.map((menuItem, index) => (
+                                        <li
+                                            className="flex-column"
+                                            key={index}
+                                        >
+                                            {menuItem.subMenu &&
+                                                menuItem.subMenu.map((subMenuItem, subIndex) => (
+                                                    <Link
+                                                        key={subIndex}
+                                                        to={subMenuItem.to}
+                                                        onMouseEnter={() =>
+                                                            handleLabelHover(subMenuItem.label, menuItem.categoryimg)
+                                                        }
+                                                        onMouseLeave={() => setActiveSubMenu(null)}
+                                                    >
+                                                        {subMenuItem.label}
+                                                    </Link>
+                                                ))}
+                                        </li>
+                                    ))}
+                                </ul>
+                                {menuItems.categoryimg && (
+                                    // <div className="menu-img flex">
+                                    //     <div className="category-img">
+                                    //         <img
+                                    //             src={activeMenuImg}
+                                    //             alt="카테고리 01"
+                                    //         />
+                                    //     </div>
+                                    //     <div className="category-img">
+                                    //         <img
+                                    //             src={activeMenuImg}
+                                    //             alt="카테고리 02"
+                                    //         />
+                                    //     </div>
+                                    // </div>
 
-                    <div className="rank-block">
-                        <p>인기순위</p>
-                    </div>
-                </nav> */}
+                                    <ul className="menu-items">
+                                        {menuItems.map((item, index) => (
+                                            <li key={index}>
+                                                {item.categoryimg && <img src={item.categoryimg}></img>},
+                                                {item.categoryimg2 && <img src={item.categoryimg2}></img>}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        </header>
     );
-}
+};
+
+export default Header;
