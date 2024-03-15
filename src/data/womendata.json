@@ -1,6 +1,19 @@
 {
     "top": {
-        "tshirt": [],
+        "tshirt": [
+            {
+                "id": "tshirt-0",
+                "title": "",
+                "desc": "",
+                "code": "",
+                "price": 11,
+                "label": "",
+                "category": "",
+                "togetherWith": [""],
+                "SleeveType": "long",
+                "color": "bl"
+            }
+        ],
 
         "shirt": [],
 
