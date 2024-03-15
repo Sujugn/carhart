@@ -67,41 +67,52 @@ a {
     font-weight: bold;
     display: flex;
     align-items: flex-start;
+
     li {
         margin: 0 15px;
         color: white;
+
+        a {
+            color: white;
+        }
     }
 }
 //공통
 
 .nav-items {
-    position: relative;
-    padding: 2px;
     position: absolute; /* 절대 위치로 설정 */
+    padding: 2px;
     text-align: center;
     z-index: 999;
-    background-color: #e8e8e8;
+    overflow: hidden;
     height: 500px;
+    background-color: white;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     ul {
         li {
             margin: 0 30px;
             font-size: 16px;
+            a {
+                color: #000;
+                margin: 10px 0;
+
+                &:hover {
+                    color: #545adc;
+                    font-weight: bold;
+                }
+            }
         }
     }
+}
 
-    .menu-img {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        // width: 350px;
-        // height: 200px;
-        // background-color: white;
-
-        .category-img {
-            width: 350px;
-            height: 200px;
-            background-color: white;
-        }
+.category-img {
+    display: flex;
+    justify-content: end;
+    height: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+    img {
+        height: 100%;
     }
 }

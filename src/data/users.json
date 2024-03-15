@@ -1,0 +1,18 @@
+[
+    {
+        "id": "carhartt12",
+        "pw": "carhartt12@@",
+        "name": "멤버1",
+        "email": "carhartt@naver.com",
+        "phoneNumber": "01012345678",
+        "address": "경기도"
+    },
+    {
+        "id": "",
+        "pw": "",
+        "name": "",
+        "email": "",
+        "phoneNumber": "",
+        "address": ""
+    }
+]

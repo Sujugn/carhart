@@ -5,15 +5,47 @@ import '../assets/styles/LookBook.scss';
 
 //기본 이미지
 import look01 from '../assets/img/look01.png';
-import look02 from '../assets/img/look02.png';
 
 //탭 이미지
-import look01tab from '../assets/img/look01.png';
-import look02tab from '../assets/img/look02.png';
+// import look01tab from '../assets/img/look01.png';
+
+//LOOKBOOK 01
+import lookBook01Outer from '../assets/img/lookbook01_outer.png';
+import lookbook01Shirt from '../assets/img/lookbook01_shirt.png';
+import { use } from 'base';
 
 export default function LookBook() {
     //데이터
-    const lookbookData = [{ id: 'look01', img: look01, tabimg: look01tab }];
+    const lookbookData = [
+        {
+            id: 'look01',
+            img: look01,
+            items: [
+                {
+                    type: 'shirt',
+                    name: '긴팔 리게티 셔츠 리게티 스트라이프, 벤쿠버 왁스/블랙',
+                    desc: 'L/S LIGETY SHIRT',
+                    option: 'LIGETY STRIPE, WAX/BLACK',
+                    code: 'CA24SSSHLS13088001',
+                    id: 1, //추가 데이터 작업후 수정(NEW),
+                    price: 155000,
+                    url: 1, //동적으로 추가
+                    imgUrl: lookbook01Shirt,
+                },
+                {
+                    type: 'jacket',
+                    name: 'OG 초어 코트 블랙 리지드',
+                    desc: 'OG CHORE COAT',
+                    option: 'BLACK RIGID',
+                    code: 'CA24SSJAJL00691001',
+                    id: 2,
+                    price: 238000,
+                    url: 2,
+                    imgUrl: lookBook01Outer,
+                },
+            ],
+        },
+    ];
 
     const [selectedImg, setselectedImg] = useState(null);
 
@@ -41,7 +73,6 @@ export default function LookBook() {
                                     <img
                                         src={lookbook.img}
                                         style={{
-                                            width: '100%',
                                             height: '100%',
                                             overflow: ' hidden',
                                         }}
@@ -67,7 +98,7 @@ export default function LookBook() {
                             </div>
                         </div>
 
-                        <div className="change-block">
+                        {/* <div className="change-block">
                             {selectedImg && (
                                 <img
                                     className="change-img"
@@ -75,7 +106,7 @@ export default function LookBook() {
                                     alt={`Lookbook Tab Image ${lookbook.id}`}
                                 />
                             )}
-                        </div>
+                        </div> */}
                     </div>
                 ))}
             </div>

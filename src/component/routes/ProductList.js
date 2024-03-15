@@ -35,7 +35,7 @@ export default function ProductList({
     return (
         <div className="productlist">
             <ul className="content-block">
-                {filteredSoldout.map((item) => (
+                {items.map((item) => (
                     <li
                         key={item.id}
                         onClick={() => handleDetailClick(item.id)}
@@ -43,7 +43,6 @@ export default function ProductList({
                         <div className="product-info">
                             <div className="product-img">
                                 <img
-                                    //src={item.images[0].defaultimg}
                                     src={
                                         hoveredItemId === item.id ? item.images[0].hoverimg : item.images[0].defaultimg
                                     }

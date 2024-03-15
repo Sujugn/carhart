@@ -1,46 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//로고이미지
-import LogoImg from '../assets/img/logo.png';
+import logoImg from '../../component/assets/img/logo.png';
 
 const Positioner = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-`;
-
-const Width = styled.div`
-    width: 500px;
+    width: 615px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const LogoWrapper = styled.div`
-    width : 250px
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 150px;
 `;
 
 const Contents = styled.div`
-    padding: 2rem;
+    padding: 15px;
 `;
 
-export default function AuthForm({ children }) {
+const AuthForm = ({ children }) => {
     return (
         <Positioner>
-            <Width>
-                <LogoWrapper>
-                    <img
-                        src={LogoImg}
-                        style={{
-                            width: '100%',
-                        }}
-                    ></img>
-                </LogoWrapper>
-
-                <Contents>{children}</Contents>
-            </Width>
+            <LogoWrapper>
+                <img
+                    src={logoImg}
+                    style={{
+                        width: '100%',
+                    }}
+                />
+            </LogoWrapper>
+            <Contents>{children}</Contents>
         </Positioner>
     );
-}
+};
+
+export default AuthForm;

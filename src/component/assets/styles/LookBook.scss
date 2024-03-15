@@ -16,8 +16,13 @@
 .content-left {
     width: 615px;
     height: 615px;
-    background-color: aqua;
+    background-color: #f3eee8;
     margin-right: 15px;
+
+    .lookbook-img {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .content-right {

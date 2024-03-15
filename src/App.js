@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -19,57 +19,28 @@ import Form from './component/layout/Form';
 import FindLayout from './component/layout/FindLayout';
 import ProductList from './component/routes/ProductList';
 
+import AuthForm from './cotainer/auth/AuthForm';
+import Auth from './pages/Auth';
+import Login from './cotainer/auth/Login';
+import UserFind from './cotainer/auth/userfind';
+import Terms from './cotainer/auth/terms';
+import MyPage from './component/routes/mypage';
+
 //data
 import manData from './data/madata.json';
 
 //new
 // import { Auth } from './pages';
 import Home from './component/layout/Home';
+import Test from './cotainer/auth/Test';
 
 function App() {
-    // //모달 상태관리함수
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalTitle, setModalTitle] = useState('');
-    const [modalContent, setModalContent] = useState(null);
-
-    const openModal = (title, content) => {
-        setModalTitle(title);
-        setModalContent(content);
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setModalTitle('');
-        setModalContent(null);
-        setIsModalOpen(false);
-    };
-
     const { item_id } = useParams();
     const [items, setItems] = useState(manData);
 
     return (
-        <>
-            {/* <Route
-                exact
-                path="/"
-                Component={Home}
-            ></Route>
-            <Route
-                exact
-                path="/auth"
-                Component={Auth}
-            ></Route> */}
-            <div>
-                <Header openModal={openModal} />
-                <Modal
-                    isOpen={isModalOpen}
-                    onClose={closeModal}
-                    title={modalTitle}
-                >
-                    {modalContent}
-                </Modal>
-            </div>
-
+        <BrowserRouter>
+            <Header />
             <Routes>
                 <Route
                     path="/"
@@ -77,16 +48,10 @@ function App() {
                 ></Route>
 
                 <Route
-                    path="/join"
-                    element={
-                        <Form
-                            title="Join"
-                            subtitle="*은 필수입력사항입니다. 회원가입을 완료하려면 항목을 모두 작성해주세요"
-                        >
-                            <JoinPage />
-                        </Form>
-                    }
-                />
+                    path="/Login"
+                    element={<Login />}
+                ></Route>
+
                 <Route
                     path="/cart"
                     element={<CartPage />}
@@ -114,20 +79,29 @@ function App() {
                     path="/FindLayout"
                     element={<FindLayout title="아이디 찾기" />}
                 ></Route>
+
+                <Route
+                    path="/test"
+                    element={<Test />}
+                ></Route>
+
+                {/* <Route
+                    path="/userfind/:tab"
+                    element={<UserFind />}
+                ></Route> */}
+
+                <Route
+                    path="/terms"
+                    element={<Terms />}
+                ></Route>
+                <Route
+                    path="/mypage"
+                    element={<MyPage />}
+                ></Route>
             </Routes>
 
             <Footer />
-
-            <div>
-                <Modal
-                    isOpen={isModalOpen}
-                    onClose={closeModal}
-                    title={modalTitle}
-                >
-                    {modalContent}
-                </Modal>
-            </div>
-        </>
+        </BrowserRouter>
     );
 }
 

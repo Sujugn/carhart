@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
 import '../assets/styles/sub.scss';
 
 //ICON
@@ -18,17 +17,14 @@ export default function SubPage({ items }) {
     const handleChange = (event) => {
         setPriceFilter(event.target.value);
     };
-
-    const sortByLowPrice = (item) => {};
-    const sortByHighPrice = () => {};
-
-    //품절상품 제외 filter
-    //상품 품절
-    const [excludeSoldOut, setExcludeSoldOut] = useState(false);
-
-    const handleExcludeSoldOut = () => {
-        setExcludeSoldOut(!excludeSoldOut);
-    };
+    const category = [
+        { title: '전체' },
+        { title: '자켓' },
+        { title: '스웨터' },
+        { title: '니트' },
+        { title: '셔츠' },
+        { title: '티셔츠' },
+    ];
 
     return (
         <div>
@@ -38,15 +34,11 @@ export default function SubPage({ items }) {
                     <nav className="side-menu">
                         <strong>TOP</strong>
                         <ul>
-                            <li className="all">전체</li>
-                            <li>자켓</li>
-                            <li>스웨터</li>
-                            <li>니트</li>
-                            <li>셔츠</li>
-                            <li>티셔츠</li>
+                            {category.map((item) => {
+                                <li>{item.title}</li>;
+                            })}
                         </ul>
                     </nav>
-                    {/* <Filter></Filter> */}
                 </div>
 
                 <div className="main-content">
@@ -64,7 +56,7 @@ export default function SubPage({ items }) {
                             <label className="division soldout-filter">
                                 <input
                                     type="checkbox"
-                                    onClick={handleExcludeSoldOut}
+                                    // onClick={handleExcludeItem}
                                 ></input>
                                 <p>품절상품제외</p>
                             </label>
@@ -72,8 +64,8 @@ export default function SubPage({ items }) {
                             <a className="division newtap">
                                 <select onChange={handleChange}>
                                     <option>신상품순</option>
-                                    <option value={sortByLowPrice}>낮은가격순</option>
-                                    <option value={sortByHighPrice}>높은가격순</option>
+                                    {/* <option value={sortByLowPrice}>낮은가격순</option>
+                                            <option value={sortByHighPrice}>높은가격순</option> */}
                                 </select>
                             </a>
 
@@ -87,10 +79,10 @@ export default function SubPage({ items }) {
                     <ProductList
                         priceFilter={priceFilter}
                         handleChange={handleChange}
-                        sortByLowPrice={sortByLowPrice}
-                        sortByHighPrice={sortByHighPrice}
-                        excludeSoldOut={excludeSoldOut}
-                        handleExcludeSoldOut={handleExcludeSoldOut}
+                        // sortByLowPrice={sortByLowPrice}
+                        // sortByHighPrice={sortByHighPrice}
+                        // soldoutItems={soldoutItems}
+                        // handleExcludeItem={handleExcludeItem}
                         items={items}
                     />
                 </div>

@@ -1,31 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import AuthForm from './AuthForm';
-const Wrapper = styled.div`
-    margin-top: 1rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.5rem;
 
-    background: black
-    color: white;
-
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 500;
-
+const Wrapper = styled.button`
+    background: ${(props) => props.bgcColor || 'black'};
+    color: ${(props) => props.color || 'white'};
+    border: 1px solid black;
     cursor: pointer;
-    user-select: none;
-    transition: .2s all;
-
-    &:hover {
-        background: #ccc
-    }
-
-    &:active {
-        background: #ccc
-    }
-
+    padding: 5px 10px;
+    font-size: 12px;
+    height: 35px;
+    border-radius: ${(props) => (props.next ? '20px' : '')};
+    margin-top: ${(props) => (props.next ? '30px' : '')};
+    width: ${(props) => (props.next ? '100%' : '115px')};
 `;
-const AuthButton = ({ children, onclick }) => <Wrapper onclick={onclick}>{children}</Wrapper>;
+
+const AuthButton = ({ children, onClick, next, ...rest }) => (
+    <Wrapper
+        type="submit"
+        onClick={onClick}
+        next={next}
+        {...rest}
+    >
+        {children}
+    </Wrapper>
+);
 
 export default AuthButton;
